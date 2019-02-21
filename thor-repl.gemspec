@@ -4,13 +4,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "thor_repl/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "thor-repl"
+  spec.name          = "thor_repl"
   spec.version       = Thor::Repl::VERSION
   spec.authors       = ["Mik Freedman"]
   spec.email         = ["github@michael-freedman.com"]
 
   spec.summary       = "Create a REPL for any Thor CLI"
-  spec.homepage      = "https://github.com/mikfreedman/thor-repl"
+  spec.homepage      = "https://github.com/mikfreedman/thor_repl"
   spec.license       = "MIT"
 
   # Specify which files should be added to the gem when it is released.
