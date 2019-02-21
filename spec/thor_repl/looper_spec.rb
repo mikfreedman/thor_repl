@@ -15,12 +15,12 @@ RSpec.describe ThorRepl::Looper do
   describe "instance methods" do
     let(:thor_class) { double(:thor_class) }
     let(:readline_class) { FakeReadLine.new(input) }
-    let(:repl) { described_class.new(thor_class, readline_class: readline_class, welcome_message: false) }
+    let(:repl) { described_class.new(thor_commands_class: thor_class, readline_class: readline_class, welcome_message: false) }
 
 
     describe "#run" do
       context "when prompt is set" do
-        let(:repl) { described_class.new(thor_class, prompt: "funky", readline_class: readline_class, welcome_message: false) }
+        let(:repl) { described_class.new(thor_commands_class: thor_class, prompt: "funky", readline_class: readline_class, welcome_message: false) }
         let(:input) { "exit" }
 
         it "passes the prompt to readline" do

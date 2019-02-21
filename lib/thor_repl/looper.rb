@@ -1,6 +1,6 @@
 module ThorRepl
   class Looper
-    def initialize(thor_commands_class, readline_class: Readline, welcome_message: true, prompt: ">")
+    def initialize(thor_commands_class:, readline_class: Readline, welcome_message: true, prompt: ">")
       @welcome_message = welcome_message
       @readline_class = readline_class
       @thor_commands_class = thor_commands_class
