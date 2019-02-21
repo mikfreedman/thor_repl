@@ -5,7 +5,7 @@ require "thor_repl/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "thor_repl"
-  spec.version       = Thor::Repl::VERSION
+  spec.version       = ThorRepl::VERSION
   spec.authors       = ["Mik Freedman"]
   spec.email         = ["github@michael-freedman.com"]
 
