@@ -33,7 +33,7 @@ require 'thor_repl'
 class MyCLI < Thor
   desc "interactive", "interactive console"
   def interactive
-    CalendarAssistant::CLI::Repl.start(self.class, prompt: "my-cli>")
+    ThorRepl.start(self.class, prompt: "my-cli>")
   end
 end
 ```
