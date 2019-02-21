@@ -23,7 +23,7 @@ module ThorRepl
         case input
         when /^exit!?/
           break
-        when //
+        when /^$/
           Readline::HISTORY.pop
         end
 
