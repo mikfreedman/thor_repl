@@ -4,7 +4,7 @@ Easily create a REPL for any [Thor CLI](https://github.com/erikhuda/thor)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/2b2cd7ca322d7e1c1370/maintainability)](https://codeclimate.com/github/mikfreedman/thor_repl/maintainability)
 [![Gem Version](https://badge.fury.io/rb/thor_repl.svg)](https://badge.fury.io/rb/thor_repl)
-[![CircleCI](https://circleci.com/gh/mikfreedman/thor_repl.svg?style=svg)](https://circleci.com/gh/mikfreedman/thor_repl)
+[![CircleCI](https://circleci.com/gh/mikfreedman/thor_repl.svg?style=shield)](https://circleci.com/gh/mikfreedman/thor_repl)
 
 ## Installation
 
