@@ -1,5 +1,27 @@
 require "bundler/setup"
-require "thor/repl"
+require "thor_repl"
+
+require 'tempfile'
+
+module RspecDescribeHelpers
+  def with_temp_file(filename, identifier = :temp_file)
+    contents = block_given? ? yield : ""
+
+    let identifier do
+      Tempfile.new filename
+    end
+
+    before do
+      self.send(identifier).write contents
+      self.send(identifier).close
+    end
+
+    after do
+      self.send(identifier).close
+      self.send(identifier).unlink
+    end
+  end
+end
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -11,4 +33,6 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.extend RspecDescribeHelpers
 end

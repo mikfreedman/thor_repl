@@ -1,8 +1,6 @@
 # Thor::Repl
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/thor/repl`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Easily create a REPL for any [Thor CLI](https://github.com/erikhuda/thor)
 
 ## Installation
 
@@ -22,7 +20,28 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+This Gem assumes you have a class that inherits from `Thor` describing your commands in your CLI, as described in Thor's [Getting Started guide](https://github.com/erikhuda/thor/wiki/Getting-Started#a-simple-example)
+
+Add a new method to trigger an interactive console like so:
+
+```ruby
+require 'thor_repl'
+
+class MyCLI < Thor
+  desc "interactive", "interactive console"
+  def interactive
+    return if handle_help_args
+    CalendarAssistant::CLI::Repl.start(self.class, prompt: "my-cli>")
+  end
+end
+```
+
+Then, from your command line enjoy REPL goodness!
+
+```bash
+$ ./bin/my-cli interactive
+my-cli> help
+````
 
 ## Development
 
