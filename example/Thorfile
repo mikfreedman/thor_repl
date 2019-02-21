@@ -1,0 +1,15 @@
+require "bundler"
+require "thor"
+require "thor_repl"
+
+class Default < Thor
+  desc "example", "this is an example task"
+  def example
+    puts "this is an example task"
+  end
+
+  desc "interactive", "interactive console"
+  def interactive
+    ThorRepl.start(self.class, prompt: "my-example-cli>")
+  end
+end

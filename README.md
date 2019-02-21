@@ -40,7 +40,9 @@ Then, from your command line enjoy REPL goodness!
 ```bash
 $ ./bin/my-cli interactive
 my-cli> help
-````
+```
+
+Checkout [/example](example) for a working example of this gem.
 
 ## Development
 

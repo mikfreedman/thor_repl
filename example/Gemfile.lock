@@ -1,0 +1,19 @@
+PATH
+  remote: ..
+  specs:
+    thor_repl (0.1.0)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    thor (0.20.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  thor
+  thor_repl!
+
+BUNDLED WITH
+   1.16.4
