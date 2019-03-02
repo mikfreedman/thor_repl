@@ -8,7 +8,13 @@ RSpec.describe ThorRepl::Looper do
 
     def readline(*args)
       return nil if @inputs.empty?
-      @inputs.pop
+      if @inputs.first == "^C"
+        @inputs.shift
+        Process.kill "INT", 0
+        ""
+      else
+        @inputs.shift
+      end
     end
   end
 
@@ -68,6 +74,31 @@ RSpec.describe ThorRepl::Looper do
           expect(thor_class).to receive(:start).with(["command", "--arg1=value"])
 
           repl.run
+        end
+      end
+
+      context "when user hits Ctrl-C" do
+        let(:input) { ["foo", "^C", "bar"] }
+
+        before do
+          @wrong_handler_called = false
+          Signal.trap "INT" do
+            @wrong_handler_called = true
+          end
+        end
+
+        it "is silently trapped" do
+          expect(thor_class).to receive(:start).with(["foo"])
+          expect(thor_class).to receive(:start).with([])
+          expect(thor_class).to receive(:start).with(["bar"])
+
+          repl.run
+
+          expect(@wrong_handler_called).to be_falsey
+        end
+
+        after do
+          Signal.trap "INT", "SYSTEM_DEFAULT" # restore
         end
       end
     end
