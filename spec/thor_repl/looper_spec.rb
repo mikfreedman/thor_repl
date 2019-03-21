@@ -58,6 +58,16 @@ RSpec.describe ThorRepl::Looper do
           repl.run
         end
       end
+
+      context "when input has spaces with quotes" do
+        let(:input) { "command \"value1 value2\"" }
+
+        it "it calls through" do
+          expect(thor_class).to receive(:start).with(["command", "value1 value2"])
+
+          repl.run
+        end
+      end
     end
   end
 end

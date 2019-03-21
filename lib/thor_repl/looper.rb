@@ -1,3 +1,5 @@
+require 'csv'
+
 module ThorRepl
   class Looper
     def initialize(thor_commands_class:, readline_class: Readline, welcome_message: true, prompt: ">")
@@ -11,7 +13,7 @@ module ThorRepl
       puts "Welcome to interactive mode. Use 'help' to list available commands" if @welcome_message
 
       repl(-> () { @readline_class.readline(@prompt, true) }) do |input|
-        args = input.split("\s")
+        args = CSV.parse_line(input, col_sep: "\s")
         @thor_commands_class.start(args)
       end
     end
