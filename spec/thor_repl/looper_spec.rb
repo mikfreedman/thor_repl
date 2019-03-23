@@ -76,7 +76,7 @@ RSpec.describe ThorRepl::Looper do
           repl.run
         end
       end
-      
+
       context "when input has spaces with quotes" do
         let(:input) { "command \"value1 value2\"" }
 
@@ -99,7 +99,7 @@ RSpec.describe ThorRepl::Looper do
 
         it "is silently trapped" do
           expect(thor_class).to receive(:start).with(["foo"])
-          expect(thor_class).to receive(:start).with([])
+          expect(thor_class).to receive(:start).with(nil)
           expect(thor_class).to receive(:start).with(["bar"])
 
           repl.run
