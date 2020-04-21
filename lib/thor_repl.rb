@@ -20,14 +20,12 @@ module ThorRepl
   end
 
   def self.load_readline
-    def load_readline
-      require 'readline'
-      ::Readline
-    rescue LoadError
-      raise "Sorry, you can't use Thor REPL without Readline or a compatible library. \n" \
-        "Possible solutions: \n" \
-        " * Rebuild Ruby with Readline support using `--with-readline` \n" \
-        " * Use the rb-readline gem, which is a pure-Ruby port of Readline \n" \
-    end
+    require 'readline'
+    ::Readline
+  rescue LoadError
+    raise "Sorry, you can't use Thor REPL without Readline or a compatible library. \n" \
+      "Possible solutions: \n" \
+      " * Rebuild Ruby with Readline support using `--with-readline` \n" \
+      " * Use the rb-readline gem, which is a pure-Ruby port of Readline \n" \
   end
 end
