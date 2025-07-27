@@ -1,4 +1,4 @@
 source :rubygems
 
-gem 'thor'
+gem 'thor', '>= 1.4.0'
 gem 'thor_repl', path: '../'
